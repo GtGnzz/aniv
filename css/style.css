@@ -1,0 +1,42 @@
+:root{--ink:#0d1020;--plum:#241640;--rose:#ff8fb1;--gold:#f3e3c3;--mist:#b9b7d8}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--ink);color:var(--gold);font:16px/1.6 'DM Sans',system-ui,sans-serif;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.glow{position:fixed;inset:0;pointer-events:none;background:radial-gradient(60% 40% at 50% 0%,rgba(255,143,177,.28),transparent 70%),radial-gradient(50% 40% at 100% 100%,rgba(120,90,220,.28),transparent 70%)}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:max(32px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom));text-align:center;overflow-y:auto}
+.screen.top{justify-content:flex-start;padding-top:max(64px,env(safe-area-inset-top))}
+.screen.active{display:flex;animation:in .7s ease both}
+@keyframes in{from{opacity:0}to{opacity:1}}
+h1,h2{font-family:Fraunces,serif;font-weight:500;line-height:1.15;max-width:22ch}
+h1{font-size:clamp(46px,15vw,76px);text-shadow:0 0 32px rgba(255,143,177,.55);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{text-shadow:0 0 54px rgba(255,143,177,.9)}}
+h2{font-size:clamp(24px,7vw,32px)}
+.names{color:var(--rose);font-family:Fraunces,serif;font-style:italic;font-size:20px}
+.count{color:var(--mist)}.count b{font-size:28px;color:var(--gold);font-family:Fraunces,serif}
+.hint{color:var(--mist);font-size:15px;min-height:1.6em}
+.btn{font:inherit;font-weight:500;color:var(--ink);background:var(--gold);border:0;border-radius:999px;padding:14px 28px;cursor:pointer;margin-top:6px}
+.btn:focus-visible,.music:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--mist)}
+.btn.hold{background:var(--rose);touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;padding:18px 40px}
+#heart{width:min(52vw,220px);filter:drop-shadow(0 0 18px rgba(255,143,177,.5))}
+.pct{font:500 34px Fraunces,serif}
+.music{position:fixed;top:max(14px,env(safe-area-inset-top));right:14px;z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid var(--mist);background:rgba(13,16,32,.6);color:var(--gold);font-size:18px}
+.music.on{animation:spin 6s linear infinite;border-color:var(--rose)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tl{list-style:none;text-align:left;width:100%;max-width:380px;padding-left:22px;border-left:2px solid rgba(255,143,177,.4)}
+.tl li{position:relative;margin:0 0 22px 8px}
+.tl li::before{content:"";position:absolute;left:-36px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--rose);box-shadow:0 0 12px var(--rose)}
+.tl small{color:var(--rose)}.tl b{display:block;font-family:Fraunces,serif;font-size:19px;font-weight:500}.tl span{color:var(--mist)}
+.track{position:relative;width:min(100%,300px);height:56px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--mist);margin:0 auto}
+.thumb{position:absolute;left:4px;top:4px;width:46px;height:46px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:22px;touch-action:none;cursor:grab}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:400px;animation:in .8s ease both}
+.grid figure{aspect-ratio:3/4;border-radius:14px;overflow:hidden;position:relative;background:linear-gradient(160deg,var(--plum),#3b2360)}
+.grid img{width:100%;height:100%;object-fit:cover;display:block}
+.grid figcaption{position:absolute;inset:auto 0 0;padding:20px 10px 8px;font-size:13px;background:linear-gradient(transparent,rgba(13,16,32,.85))}
+.opts{display:grid;gap:10px;width:100%;max-width:360px}
+.opts button{font:inherit;color:var(--gold);background:rgba(255,255,255,.07);border:1px solid var(--mist);border-radius:14px;padding:14px}
+.opts button.bad{animation:shake .35s;border-color:#ff6b6b}.opts button.ok{background:var(--rose);color:var(--ink);border-color:var(--rose)}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.letter{max-width:34ch;font-family:Fraunces,serif;font-size:18px;line-height:1.75;display:grid;gap:14px}
+.letter p{opacity:0;animation:in 1s ease forwards}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.letter p{opacity:1}}

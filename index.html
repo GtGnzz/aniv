@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Our First Chapter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head>
+<body><div class="glow"></div>
+<button id="musicBtn" class="music" aria-label="Putar atau jeda musik">♪</button>
+<audio id="bgm" loop preload="none"></audio>
+
+<section class="screen active" id="s-cover">
+  <p class="names" id="names"></p>
+  <h1 id="title"></h1>
+  <p class="count"><b id="days">0</b> hari bersama</p>
+  <button class="btn" data-go="hold" id="openBtn">Buka bab pertama</button>
+</section>
+
+<section class="screen" id="s-hold">
+  <h2>Sebelum lanjut, aku mau tau seberapa sayangnya kamu</h2>
+  <svg id="heart" viewBox="0 0 24 24" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="1" x2="0" y2="0">
+      <stop id="st1" offset="0" stop-color="#ff8fb1"/><stop id="st2" offset="0" stop-color="#ffffff" stop-opacity=".08"/></linearGradient></defs>
+    <path fill="url(#g)" stroke="#ff8fb1" stroke-width=".4" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+  <p class="pct"><span id="pct">0</span>%</p>
+  <p id="holdMsg" class="hint"></p>
+  <button class="btn hold" id="holdBtn">Tahan di sini</button>
+  <button class="btn" data-go="story" id="holdNext" hidden>Lanjut</button>
+</section>
+
+<section class="screen top" id="s-story">
+  <h2>Perjalanan kita sampai sekarang</h2>
+  <ol class="tl" id="tl"></ol>
+  <button class="btn" data-go="gallery">Lihat kenangan kita</button>
+</section>
+
+<section class="screen top" id="s-gallery">
+  <h2>Kenangan kita</h2>
+  <div id="lock" class="lock">
+    <p class="hint">Coba Geser Kado Nya Sayang</p>
+    <div class="track" id="track"><span class="thumb" id="thumb">🎁</span></div>
+  </div>
+  <div id="grid" class="grid" hidden></div>
+  <button class="btn" data-go="quiz" id="galNext" hidden>Lanjut</button>
+</section>
+
+<section class="screen" id="s-quiz">
+  <p class="hint" id="qNo"></p>
+  <h2 id="qText"></h2>
+  <div id="qOpts" class="opts"></div>
+  <p class="hint" id="qFb" aria-live="polite"></p>
+</section>
+
+<section class="screen" id="s-letter">
+  <h2 id="lTitle"></h2>
+  <div id="letter" class="letter"></div>
+
+  <a
+    class="btn ghost"
+    href="https://wa.me/6285640624288?text=Terima%20kasih%20ya%20sayang%20sudah%20bikin%20aku%20senang%20dengan%20hadiah%20ini%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F%20Aku%20senang%20bisa%20menjadi%20bagian%20dari%20cerita%20kita.%20Semoga%20kita%20bisa%20terus%20bersama%2C%20saling%20menjaga%2C%20dan%20menulis%20banyak%20cerita%20lainnya%20bersama.%20I%20love%20you%20%E2%9D%A4%EF%B8%8F"
+    target="_blank"
+  >
+    Kirim Terima Kasih ❤️
+  </a>
+</section>
+<script src="js/config.js"></script><script src="js/main.js"></script>
+</body></html>
